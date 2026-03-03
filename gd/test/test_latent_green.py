@@ -2,6 +2,7 @@
 import sys
 import glob
 import argparse
+import json
 import torch
 import torch.nn.functional as F
 import numpy as np
@@ -72,6 +73,7 @@ def main():
     parser.add_argument("--ckpt_dir", help="Checkpoint directory to load weights from")
     parser.add_argument("--num_batches", type=int, default=50)
     parser.add_argument("--batch_size", type=int, default=4)
+    parser.add_argument("--json_out", help="Optional path to write structured metrics as JSON")
     args = parser.parse_args()
 
     config = load_config(args.config)
@@ -317,6 +319,16 @@ def main():
     print("Evaluation Results")
     print("=" * 60)
 
+    def stat_summary(key):
+        if not metrics[key]:
+            return None
+        vals = np.asarray(metrics[key], dtype=np.float64)
+        return {
+            "mean": float(np.mean(vals)),
+            "std": float(np.std(vals)),
+            "count": int(vals.size),
+        }
+
     def print_stat(name, key, fmt=".6f"):
         if metrics[key]:
             vals = metrics[key]
@@ -352,6 +364,42 @@ def main():
         print(f"Pred Log: [{np.min(ranges['pred_log_min']):.6f}, {np.max(ranges['pred_log_max']):.6f}]")
         print(f"Obs Log:  [{np.min(ranges['obs_log_min']):.6f}, {np.max(ranges['obs_log_max']):.6f}]")
     print(f"Log Enabled: {log_enabled}")
+
+    if args.json_out:
+        json_dir = os.path.dirname(os.path.abspath(args.json_out))
+        if json_dir:
+            os.makedirs(json_dir, exist_ok=True)
+        results = {
+            "config": os.path.abspath(args.config),
+            "ckpt_dir": os.path.abspath(args.ckpt_dir) if args.ckpt_dir else None,
+            "num_batches": int(args.num_batches),
+            "batch_size": int(args.batch_size),
+            "sublattice_resolved": bool(sublattice_resolved),
+            "backbone": str(model_cfg.get("backbone", "cnn")),
+            "metrics": {key: stat_summary(key) for key in metrics},
+            "ranges": {
+                "pred_lin": [
+                    float(np.min(ranges["pred_lin_min"])) if ranges["pred_lin_min"] else None,
+                    float(np.max(ranges["pred_lin_max"])) if ranges["pred_lin_max"] else None,
+                ],
+                "obs_lin": [
+                    float(np.min(ranges["obs_lin_min"])) if ranges["obs_lin_min"] else None,
+                    float(np.max(ranges["obs_lin_max"])) if ranges["obs_lin_max"] else None,
+                ],
+                "pred_log": [
+                    float(np.min(ranges["pred_log_min"])) if ranges["pred_log_min"] else None,
+                    float(np.max(ranges["pred_log_max"])) if ranges["pred_log_max"] else None,
+                ] if log_enabled and ranges["pred_log_min"] else None,
+                "obs_log": [
+                    float(np.min(ranges["obs_log_min"])) if ranges["obs_log_min"] else None,
+                    float(np.max(ranges["obs_log_max"])) if ranges["obs_log_max"] else None,
+                ] if log_enabled and ranges["obs_log_min"] else None,
+            },
+            "log_enabled": bool(log_enabled),
+        }
+        with open(args.json_out, "w", encoding="utf-8") as f:
+            json.dump(results, f, indent=2, ensure_ascii=False)
+        print(f"Structured metrics written to {os.path.abspath(args.json_out)}")
 
 if __name__ == "__main__":
     main()

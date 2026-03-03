@@ -343,11 +343,38 @@ guidance:
   use_latent_green: true
   loss:
     type: obs_consistency
+    charbonnier_eps: 1.0e-3
+    huber_delta: 0.1
   lambda:
     lambda0: 1.0
     schedule: constant
     start_step: 0
     grad_steps_per_iter: 1
+  manifold:
+    enabled: true
+    mode: first_order_projection
+    step_schedule: legacy
+    lambda0: null
+    start_step: null
+    grad_steps_per_iter: null
+    normalize_grad: false
+    grad_clip: null
+    max_step_norm: null
+    eps: 1.0e-8
+  risk:
+    enabled: true
+    emit_trace: true
+    normalize_by_latent_std: true
+    weights:
+      phys_loss: 1.0
+      grad_norm: 0.0
+      delta_norm: 0.0
+  budget_hooks:
+    enabled: false
+    policy: threshold
+    threshold: null
+    max_queries_per_sample: 0
+    dry_run: true
 
 validation:
   enabled: false
