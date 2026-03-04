@@ -71,22 +71,26 @@ def _build_batch_root(suite_cfg: Dict[str, Any], cli_out_dir: str | None) -> str
 
 def _run_subprocess(cmd: List[str], cwd: str, log_path: str) -> int:
     os.makedirs(os.path.dirname(log_path), exist_ok=True)
-    completed = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
-    with open(log_path, "w", encoding="utf-8") as f:
-        if completed.stdout:
-            f.write(completed.stdout)
-            if not completed.stdout.endswith("\n"):
-                f.write("\n")
-        if completed.stderr:
-            f.write("\n[stderr]\n")
-            f.write(completed.stderr)
-            if not completed.stderr.endswith("\n"):
-                f.write("\n")
-    if completed.stdout:
-        sys.stdout.write(completed.stdout)
-    if completed.stderr:
-        sys.stderr.write(completed.stderr)
-    return int(completed.returncode)
+    with open(log_path, "w", encoding="utf-8") as log_handle:
+        env = os.environ.copy()
+        env["PYTHONUNBUFFERED"] = "1"
+        process = subprocess.Popen(
+            cmd,
+            cwd=cwd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            bufsize=1,
+            env=env,
+        )
+        assert process.stdout is not None
+        for line in process.stdout:
+            sys.stdout.write(line)
+            sys.stdout.flush()
+            log_handle.write(line)
+            log_handle.flush()
+        process.stdout.close()
+        return int(process.wait())
 
 
 def _write_batch_manifest(path: str, payload: Dict[str, Any]) -> None:

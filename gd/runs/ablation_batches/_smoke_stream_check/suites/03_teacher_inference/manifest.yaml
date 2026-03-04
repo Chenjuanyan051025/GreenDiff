@@ -1,0 +1,160 @@
+suite: teacher_inference
+base_config: D:\GreenDiff\GD\gd\configs\a6000_48g_12c_32g.yaml
+output_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference
+stage: print
+layout:
+  root_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference
+  configs_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\configs
+  suite_runs_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\runs
+  results_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\results
+  result_json_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\results\json
+  logs_root: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\logs
+experiments:
+- name: teacher_no_guidance
+  group: teacher_inference
+  description: Teacher sampler without guidance
+  runner: teacher_eval
+  config: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\configs\teacher_inference\01_teacher_no_guidance.yaml
+  run_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\runs\teacher_inference\teacher_no_guidance
+  result_json: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\results\json\teacher_inference\01_teacher_no_guidance.json
+  log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\logs\print\teacher_inference\teacher_no_guidance.print.log
+  train_log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\logs\print\teacher_inference\teacher_no_guidance.print.log
+  eval_log_path: ''
+  overrides:
+    guidance.enabled: false
+    validation.enabled: false
+    validation.kpm_check.enabled: false
+    validation.restart.enabled: false
+  train_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.train.train_diffusion
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\configs\teacher_inference\01_teacher_no_guidance.yaml
+  eval_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.test.eval_teacher_ablation
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\configs\teacher_inference\01_teacher_no_guidance.yaml
+  - --num_batches
+  - '20'
+  - --batch_size
+  - '4'
+  - --json_out
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\results\json\teacher_inference\01_teacher_no_guidance.json
+  status: PLANNED
+- name: teacher_legacy
+  group: teacher_inference
+  description: Legacy heuristic guidance
+  runner: teacher_eval
+  config: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\configs\teacher_inference\02_teacher_legacy.yaml
+  run_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\runs\teacher_inference\teacher_legacy
+  result_json: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\results\json\teacher_inference\02_teacher_legacy.json
+  log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\logs\print\teacher_inference\teacher_legacy.print.log
+  train_log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\logs\print\teacher_inference\teacher_legacy.print.log
+  eval_log_path: ''
+  overrides:
+    guidance.enabled: true
+    guidance.manifold.enabled: true
+    guidance.manifold.step_schedule: legacy
+    guidance.manifold.grad_steps_per_iter: 1
+    guidance.budget_hooks.enabled: false
+    validation.enabled: false
+    validation.kpm_check.enabled: false
+    validation.restart.enabled: false
+  train_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.train.train_diffusion
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\configs\teacher_inference\02_teacher_legacy.yaml
+  eval_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.test.eval_teacher_ablation
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\configs\teacher_inference\02_teacher_legacy.yaml
+  - --num_batches
+  - '20'
+  - --batch_size
+  - '4'
+  - --json_out
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\results\json\teacher_inference\02_teacher_legacy.json
+  status: PLANNED
+- name: teacher_pmd1
+  group: teacher_inference
+  description: Projected manifold diffusion, 1-step
+  runner: teacher_eval
+  config: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\configs\teacher_inference\03_teacher_pmd1.yaml
+  run_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\runs\teacher_inference\teacher_pmd1
+  result_json: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\results\json\teacher_inference\03_teacher_pmd1.json
+  log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\logs\print\teacher_inference\teacher_pmd1.print.log
+  train_log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\logs\print\teacher_inference\teacher_pmd1.print.log
+  eval_log_path: ''
+  overrides:
+    guidance.enabled: true
+    guidance.manifold.enabled: true
+    guidance.manifold.step_schedule: constant
+    guidance.manifold.grad_steps_per_iter: 1
+    guidance.budget_hooks.enabled: false
+    validation.enabled: false
+    validation.kpm_check.enabled: false
+    validation.restart.enabled: false
+  train_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.train.train_diffusion
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\configs\teacher_inference\03_teacher_pmd1.yaml
+  eval_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.test.eval_teacher_ablation
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\configs\teacher_inference\03_teacher_pmd1.yaml
+  - --num_batches
+  - '20'
+  - --batch_size
+  - '4'
+  - --json_out
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\results\json\teacher_inference\03_teacher_pmd1.json
+  status: PLANNED
+- name: teacher_pmd2
+  group: teacher_inference
+  description: Projected manifold diffusion, 2-step
+  runner: teacher_eval
+  config: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\configs\teacher_inference\04_teacher_pmd2.yaml
+  run_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\runs\teacher_inference\teacher_pmd2
+  result_json: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\results\json\teacher_inference\04_teacher_pmd2.json
+  log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\logs\print\teacher_inference\teacher_pmd2.print.log
+  train_log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\logs\print\teacher_inference\teacher_pmd2.print.log
+  eval_log_path: ''
+  overrides:
+    guidance.enabled: true
+    guidance.manifold.enabled: true
+    guidance.manifold.step_schedule: constant
+    guidance.manifold.grad_steps_per_iter: 2
+    guidance.budget_hooks.enabled: false
+    validation.enabled: false
+    validation.kpm_check.enabled: false
+    validation.restart.enabled: false
+  train_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.train.train_diffusion
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\configs\teacher_inference\04_teacher_pmd2.yaml
+  eval_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.test.eval_teacher_ablation
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\configs\teacher_inference\04_teacher_pmd2.yaml
+  - --num_batches
+  - '20'
+  - --batch_size
+  - '4'
+  - --json_out
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference\results\json\teacher_inference\04_teacher_pmd2.json
+  status: PLANNED

@@ -1,0 +1,49 @@
+
+==========================================================================================
+Global Ablation Suite: teacher_budget
+Root Directory       : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget
+Configs Directory    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs
+Suite Runs Directory : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\runs
+Results Directory    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results
+Logs Root            : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\logs
+Execution Stage      : print
+==========================================================================================
+
+[01] teacher_no_teacher
+Group       : teacher_budget
+Description : PMD with no high-fidelity teacher
+Config      : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\01_teacher_no_teacher.yaml
+Train Cmd   : C:\Python314\python.exe -m gd.train.train_diffusion --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\01_teacher_no_teacher.yaml
+Eval Cmd    : C:\Python314\python.exe -m gd.test.eval_teacher_ablation --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\01_teacher_no_teacher.yaml --num_batches 20 --batch_size 4 --json_out D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results\json\teacher_budget\01_teacher_no_teacher.json
+Status      : PLANNED
+Run Dir     : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\runs\teacher_budget\teacher_no_teacher
+Result JSON : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results\json\teacher_budget\01_teacher_no_teacher.json
+Log Path    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\logs\print\teacher_budget\teacher_no_teacher.print.log
+
+[02] teacher_active_b1
+Group       : teacher_budget
+Description : PMD with active high-fidelity correction, budget 1
+Config      : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\02_teacher_active_b1.yaml
+Train Cmd   : C:\Python314\python.exe -m gd.train.train_diffusion --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\02_teacher_active_b1.yaml
+Eval Cmd    : C:\Python314\python.exe -m gd.test.eval_teacher_ablation --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\02_teacher_active_b1.yaml --num_batches 20 --batch_size 4 --json_out D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results\json\teacher_budget\02_teacher_active_b1.json
+Status      : PLANNED
+Run Dir     : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\runs\teacher_budget\teacher_active_b1
+Result JSON : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results\json\teacher_budget\02_teacher_active_b1.json
+Log Path    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\logs\print\teacher_budget\teacher_active_b1.print.log
+
+[03] teacher_active_b2
+Group       : teacher_budget
+Description : PMD with active high-fidelity correction, budget 2
+Config      : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\03_teacher_active_b2.yaml
+Train Cmd   : C:\Python314\python.exe -m gd.train.train_diffusion --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\03_teacher_active_b2.yaml
+Eval Cmd    : C:\Python314\python.exe -m gd.test.eval_teacher_ablation --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\03_teacher_active_b2.yaml --num_batches 20 --batch_size 4 --json_out D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results\json\teacher_budget\03_teacher_active_b2.json
+Status      : PLANNED
+Run Dir     : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\runs\teacher_budget\teacher_active_b2
+Result JSON : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results\json\teacher_budget\03_teacher_active_b2.json
+Log Path    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\logs\print\teacher_budget\teacher_active_b2.print.log
+
+==========================================================================================
+Manifest written to: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\manifest.yaml
+CSV summary written to: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results\summary.csv
+Markdown summary written to: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results\summary.md
+==========================================================================================

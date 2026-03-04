@@ -1,0 +1,93 @@
+
+==========================================================================================
+Global Ablation Suite: proxy_losses
+Root Directory       : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses
+Configs Directory    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs
+Suite Runs Directory : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\runs
+Results Directory    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results
+Logs Root            : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\logs
+Execution Stage      : print
+==========================================================================================
+
+[01] lg_full
+Group       : proxy_losses
+Description : Full LatentGreen surrogate
+Config      : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\01_lg_full.yaml
+Train Cmd   : C:\Python314\python.exe -m gd.train.train_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\01_lg_full.yaml
+Eval Cmd    : C:\Python314\python.exe -m gd.test.test_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\01_lg_full.yaml --num_batches 20 --batch_size 4 --json_out D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\json\proxy_losses\01_lg_full.json
+Status      : PLANNED
+Run Dir     : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\runs\proxy_losses\lg_full
+Result JSON : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\json\proxy_losses\01_lg_full.json
+Log Path    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\logs\print\proxy_losses\lg_full.print.log
+
+[02] lg_no_fft
+Group       : proxy_losses
+Description : Disable FFT loss
+Config      : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\02_lg_no_fft.yaml
+Train Cmd   : C:\Python314\python.exe -m gd.train.train_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\02_lg_no_fft.yaml
+Eval Cmd    : C:\Python314\python.exe -m gd.test.test_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\02_lg_no_fft.yaml --num_batches 20 --batch_size 4 --json_out D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\json\proxy_losses\02_lg_no_fft.json
+Status      : PLANNED
+Run Dir     : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\runs\proxy_losses\lg_no_fft
+Result JSON : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\json\proxy_losses\02_lg_no_fft.json
+Log Path    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\logs\print\proxy_losses\lg_no_fft.print.log
+
+[03] lg_no_psd
+Group       : proxy_losses
+Description : Disable PSD loss
+Config      : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\03_lg_no_psd.yaml
+Train Cmd   : C:\Python314\python.exe -m gd.train.train_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\03_lg_no_psd.yaml
+Eval Cmd    : C:\Python314\python.exe -m gd.test.test_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\03_lg_no_psd.yaml --num_batches 20 --batch_size 4 --json_out D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\json\proxy_losses\03_lg_no_psd.json
+Status      : PLANNED
+Run Dir     : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\runs\proxy_losses\lg_no_psd
+Result JSON : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\json\proxy_losses\03_lg_no_psd.json
+Log Path    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\logs\print\proxy_losses\lg_no_psd.print.log
+
+[04] lg_no_stats
+Group       : proxy_losses
+Description : Disable stats loss
+Config      : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\04_lg_no_stats.yaml
+Train Cmd   : C:\Python314\python.exe -m gd.train.train_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\04_lg_no_stats.yaml
+Eval Cmd    : C:\Python314\python.exe -m gd.test.test_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\04_lg_no_stats.yaml --num_batches 20 --batch_size 4 --json_out D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\json\proxy_losses\04_lg_no_stats.json
+Status      : PLANNED
+Run Dir     : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\runs\proxy_losses\lg_no_stats
+Result JSON : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\json\proxy_losses\04_lg_no_stats.json
+Log Path    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\logs\print\proxy_losses\lg_no_stats.print.log
+
+[05] lg_no_multiscale
+Group       : proxy_losses
+Description : Disable multiscale loss
+Config      : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\05_lg_no_multiscale.yaml
+Train Cmd   : C:\Python314\python.exe -m gd.train.train_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\05_lg_no_multiscale.yaml
+Eval Cmd    : C:\Python314\python.exe -m gd.test.test_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\05_lg_no_multiscale.yaml --num_batches 20 --batch_size 4 --json_out D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\json\proxy_losses\05_lg_no_multiscale.json
+Status      : PLANNED
+Run Dir     : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\runs\proxy_losses\lg_no_multiscale
+Result JSON : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\json\proxy_losses\05_lg_no_multiscale.json
+Log Path    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\logs\print\proxy_losses\lg_no_multiscale.print.log
+
+[06] lg_no_peak
+Group       : proxy_losses
+Description : Disable peak control
+Config      : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\06_lg_no_peak.yaml
+Train Cmd   : C:\Python314\python.exe -m gd.train.train_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\06_lg_no_peak.yaml
+Eval Cmd    : C:\Python314\python.exe -m gd.test.test_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\06_lg_no_peak.yaml --num_batches 20 --batch_size 4 --json_out D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\json\proxy_losses\06_lg_no_peak.json
+Status      : PLANNED
+Run Dir     : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\runs\proxy_losses\lg_no_peak
+Result JSON : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\json\proxy_losses\06_lg_no_peak.json
+Log Path    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\logs\print\proxy_losses\lg_no_peak.print.log
+
+[07] lg_no_residual
+Group       : proxy_losses
+Description : Disable residual loss
+Config      : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\07_lg_no_residual.yaml
+Train Cmd   : C:\Python314\python.exe -m gd.train.train_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\07_lg_no_residual.yaml
+Eval Cmd    : C:\Python314\python.exe -m gd.test.test_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\configs\proxy_losses\07_lg_no_residual.yaml --num_batches 20 --batch_size 4 --json_out D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\json\proxy_losses\07_lg_no_residual.json
+Status      : PLANNED
+Run Dir     : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\runs\proxy_losses\lg_no_residual
+Result JSON : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\json\proxy_losses\07_lg_no_residual.json
+Log Path    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\logs\print\proxy_losses\lg_no_residual.print.log
+
+==========================================================================================
+Manifest written to: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\manifest.yaml
+CSV summary written to: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\summary.csv
+Markdown summary written to: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses\results\summary.md
+==========================================================================================

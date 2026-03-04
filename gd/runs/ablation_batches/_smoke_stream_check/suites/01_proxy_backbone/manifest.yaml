@@ -1,0 +1,105 @@
+suite: proxy_backbone
+base_config: D:\GreenDiff\GD\gd\configs\a6000_48g_12c_32g.yaml
+output_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone
+stage: print
+layout:
+  root_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone
+  configs_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs
+  suite_runs_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\runs
+  results_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results
+  result_json_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results\json
+  logs_root: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\logs
+experiments:
+- name: lg_backbone_cnn
+  group: proxy_backbone
+  description: 'LatentGreen backbone ablation: cnn'
+  runner: latent_green_eval
+  config: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\01_lg_backbone_cnn.yaml
+  run_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\runs\proxy_backbone\lg_backbone_cnn
+  result_json: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results\json\proxy_backbone\01_lg_backbone_cnn.json
+  log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\logs\print\proxy_backbone\lg_backbone_cnn.print.log
+  train_log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\logs\print\proxy_backbone\lg_backbone_cnn.print.log
+  eval_log_path: ''
+  overrides:
+    latent_green.model.backbone: cnn
+  train_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.train.train_latent_green
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\01_lg_backbone_cnn.yaml
+  eval_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.test.test_latent_green
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\01_lg_backbone_cnn.yaml
+  - --num_batches
+  - '20'
+  - --batch_size
+  - '4'
+  - --json_out
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results\json\proxy_backbone\01_lg_backbone_cnn.json
+  status: PLANNED
+- name: lg_backbone_fno
+  group: proxy_backbone
+  description: 'LatentGreen backbone ablation: fno'
+  runner: latent_green_eval
+  config: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\02_lg_backbone_fno.yaml
+  run_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\runs\proxy_backbone\lg_backbone_fno
+  result_json: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results\json\proxy_backbone\02_lg_backbone_fno.json
+  log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\logs\print\proxy_backbone\lg_backbone_fno.print.log
+  train_log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\logs\print\proxy_backbone\lg_backbone_fno.print.log
+  eval_log_path: ''
+  overrides:
+    latent_green.model.backbone: fno
+  train_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.train.train_latent_green
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\02_lg_backbone_fno.yaml
+  eval_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.test.test_latent_green
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\02_lg_backbone_fno.yaml
+  - --num_batches
+  - '20'
+  - --batch_size
+  - '4'
+  - --json_out
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results\json\proxy_backbone\02_lg_backbone_fno.json
+  status: PLANNED
+- name: lg_backbone_hybrid_fno
+  group: proxy_backbone
+  description: 'LatentGreen backbone ablation: hybrid_fno'
+  runner: latent_green_eval
+  config: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\03_lg_backbone_hybrid_fno.yaml
+  run_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\runs\proxy_backbone\lg_backbone_hybrid_fno
+  result_json: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results\json\proxy_backbone\03_lg_backbone_hybrid_fno.json
+  log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\logs\print\proxy_backbone\lg_backbone_hybrid_fno.print.log
+  train_log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\logs\print\proxy_backbone\lg_backbone_hybrid_fno.print.log
+  eval_log_path: ''
+  overrides:
+    latent_green.model.backbone: hybrid_fno
+  train_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.train.train_latent_green
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\03_lg_backbone_hybrid_fno.yaml
+  eval_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.test.test_latent_green
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\03_lg_backbone_hybrid_fno.yaml
+  - --num_batches
+  - '20'
+  - --batch_size
+  - '4'
+  - --json_out
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results\json\proxy_backbone\03_lg_backbone_hybrid_fno.json
+  status: PLANNED

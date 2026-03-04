@@ -1,0 +1,27 @@
+batch_name: global_ablation_server
+description: Server-ready one-shot global ablation batch for GreenDiff.
+bundle_config: D:\GreenDiff\GD\gd\configs\suites\global_ablation_server.yaml
+base_config: D:\GreenDiff\GD\gd\configs\a6000_48g_12c_32g.yaml
+stage: print
+batch_root: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check
+suite_runs:
+- suite: proxy_backbone
+  out_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone
+  log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\batch_logs\01_proxy_backbone.log
+  return_code: 0
+  status: PLANNED
+- suite: proxy_losses
+  out_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\02_proxy_losses
+  log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\batch_logs\02_proxy_losses.log
+  return_code: 0
+  status: PLANNED
+- suite: teacher_inference
+  out_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\03_teacher_inference
+  log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\batch_logs\03_teacher_inference.log
+  return_code: 0
+  status: PLANNED
+- suite: teacher_budget
+  out_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget
+  log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\batch_logs\04_teacher_budget.log
+  return_code: 0
+  status: PLANNED

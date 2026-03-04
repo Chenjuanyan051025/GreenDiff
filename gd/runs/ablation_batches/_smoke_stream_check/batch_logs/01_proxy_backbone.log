@@ -1,0 +1,49 @@
+
+==========================================================================================
+Global Ablation Suite: proxy_backbone
+Root Directory       : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone
+Configs Directory    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs
+Suite Runs Directory : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\runs
+Results Directory    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results
+Logs Root            : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\logs
+Execution Stage      : print
+==========================================================================================
+
+[01] lg_backbone_cnn
+Group       : proxy_backbone
+Description : LatentGreen backbone ablation: cnn
+Config      : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\01_lg_backbone_cnn.yaml
+Train Cmd   : C:\Python314\python.exe -m gd.train.train_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\01_lg_backbone_cnn.yaml
+Eval Cmd    : C:\Python314\python.exe -m gd.test.test_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\01_lg_backbone_cnn.yaml --num_batches 20 --batch_size 4 --json_out D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results\json\proxy_backbone\01_lg_backbone_cnn.json
+Status      : PLANNED
+Run Dir     : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\runs\proxy_backbone\lg_backbone_cnn
+Result JSON : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results\json\proxy_backbone\01_lg_backbone_cnn.json
+Log Path    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\logs\print\proxy_backbone\lg_backbone_cnn.print.log
+
+[02] lg_backbone_fno
+Group       : proxy_backbone
+Description : LatentGreen backbone ablation: fno
+Config      : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\02_lg_backbone_fno.yaml
+Train Cmd   : C:\Python314\python.exe -m gd.train.train_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\02_lg_backbone_fno.yaml
+Eval Cmd    : C:\Python314\python.exe -m gd.test.test_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\02_lg_backbone_fno.yaml --num_batches 20 --batch_size 4 --json_out D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results\json\proxy_backbone\02_lg_backbone_fno.json
+Status      : PLANNED
+Run Dir     : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\runs\proxy_backbone\lg_backbone_fno
+Result JSON : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results\json\proxy_backbone\02_lg_backbone_fno.json
+Log Path    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\logs\print\proxy_backbone\lg_backbone_fno.print.log
+
+[03] lg_backbone_hybrid_fno
+Group       : proxy_backbone
+Description : LatentGreen backbone ablation: hybrid_fno
+Config      : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\03_lg_backbone_hybrid_fno.yaml
+Train Cmd   : C:\Python314\python.exe -m gd.train.train_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\03_lg_backbone_hybrid_fno.yaml
+Eval Cmd    : C:\Python314\python.exe -m gd.test.test_latent_green --config D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\configs\proxy_backbone\03_lg_backbone_hybrid_fno.yaml --num_batches 20 --batch_size 4 --json_out D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results\json\proxy_backbone\03_lg_backbone_hybrid_fno.json
+Status      : PLANNED
+Run Dir     : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\runs\proxy_backbone\lg_backbone_hybrid_fno
+Result JSON : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results\json\proxy_backbone\03_lg_backbone_hybrid_fno.json
+Log Path    : D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\logs\print\proxy_backbone\lg_backbone_hybrid_fno.print.log
+
+==========================================================================================
+Manifest written to: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\manifest.yaml
+CSV summary written to: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results\summary.csv
+Markdown summary written to: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\01_proxy_backbone\results\summary.md
+==========================================================================================

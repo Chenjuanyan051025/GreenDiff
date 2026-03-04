@@ -1,0 +1,134 @@
+suite: teacher_budget
+base_config: D:\GreenDiff\GD\gd\configs\a6000_48g_12c_32g.yaml
+output_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget
+stage: print
+layout:
+  root_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget
+  configs_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs
+  suite_runs_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\runs
+  results_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results
+  result_json_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results\json
+  logs_root: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\logs
+experiments:
+- name: teacher_no_teacher
+  group: teacher_budget
+  description: PMD with no high-fidelity teacher
+  runner: teacher_eval
+  config: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\01_teacher_no_teacher.yaml
+  run_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\runs\teacher_budget\teacher_no_teacher
+  result_json: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results\json\teacher_budget\01_teacher_no_teacher.json
+  log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\logs\print\teacher_budget\teacher_no_teacher.print.log
+  train_log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\logs\print\teacher_budget\teacher_no_teacher.print.log
+  eval_log_path: ''
+  overrides:
+    guidance.enabled: true
+    guidance.manifold.enabled: true
+    guidance.manifold.step_schedule: constant
+    guidance.manifold.grad_steps_per_iter: 2
+    guidance.budget_hooks.enabled: false
+    validation.enabled: false
+    validation.kpm_check.enabled: false
+    validation.restart.enabled: false
+  train_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.train.train_diffusion
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\01_teacher_no_teacher.yaml
+  eval_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.test.eval_teacher_ablation
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\01_teacher_no_teacher.yaml
+  - --num_batches
+  - '20'
+  - --batch_size
+  - '4'
+  - --json_out
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results\json\teacher_budget\01_teacher_no_teacher.json
+  status: PLANNED
+- name: teacher_active_b1
+  group: teacher_budget
+  description: PMD with active high-fidelity correction, budget 1
+  runner: teacher_eval
+  config: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\02_teacher_active_b1.yaml
+  run_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\runs\teacher_budget\teacher_active_b1
+  result_json: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results\json\teacher_budget\02_teacher_active_b1.json
+  log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\logs\print\teacher_budget\teacher_active_b1.print.log
+  train_log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\logs\print\teacher_budget\teacher_active_b1.print.log
+  eval_log_path: ''
+  overrides:
+    guidance.enabled: true
+    guidance.manifold.enabled: true
+    guidance.manifold.step_schedule: constant
+    guidance.manifold.grad_steps_per_iter: 2
+    guidance.budget_hooks.enabled: true
+    guidance.budget_hooks.policy: threshold
+    guidance.budget_hooks.threshold: 0.0
+    guidance.budget_hooks.max_queries_per_sample: 1
+    guidance.budget_hooks.dry_run: false
+    validation.enabled: true
+    validation.kpm_check.enabled: true
+    validation.restart.enabled: true
+  train_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.train.train_diffusion
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\02_teacher_active_b1.yaml
+  eval_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.test.eval_teacher_ablation
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\02_teacher_active_b1.yaml
+  - --num_batches
+  - '20'
+  - --batch_size
+  - '4'
+  - --json_out
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results\json\teacher_budget\02_teacher_active_b1.json
+  status: PLANNED
+- name: teacher_active_b2
+  group: teacher_budget
+  description: PMD with active high-fidelity correction, budget 2
+  runner: teacher_eval
+  config: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\03_teacher_active_b2.yaml
+  run_dir: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\runs\teacher_budget\teacher_active_b2
+  result_json: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results\json\teacher_budget\03_teacher_active_b2.json
+  log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\logs\print\teacher_budget\teacher_active_b2.print.log
+  train_log_path: D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\logs\print\teacher_budget\teacher_active_b2.print.log
+  eval_log_path: ''
+  overrides:
+    guidance.enabled: true
+    guidance.manifold.enabled: true
+    guidance.manifold.step_schedule: constant
+    guidance.manifold.grad_steps_per_iter: 2
+    guidance.budget_hooks.enabled: true
+    guidance.budget_hooks.policy: threshold
+    guidance.budget_hooks.threshold: 0.0
+    guidance.budget_hooks.max_queries_per_sample: 2
+    guidance.budget_hooks.dry_run: false
+    validation.enabled: true
+    validation.kpm_check.enabled: true
+    validation.restart.enabled: true
+  train_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.train.train_diffusion
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\03_teacher_active_b2.yaml
+  eval_cmd:
+  - C:\Python314\python.exe
+  - -m
+  - gd.test.eval_teacher_ablation
+  - --config
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\configs\teacher_budget\03_teacher_active_b2.yaml
+  - --num_batches
+  - '20'
+  - --batch_size
+  - '4'
+  - --json_out
+  - D:\GreenDiff\GD\gd\runs\ablation_batches\_smoke_stream_check\suites\04_teacher_budget\results\json\teacher_budget\03_teacher_active_b2.json
+  status: PLANNED

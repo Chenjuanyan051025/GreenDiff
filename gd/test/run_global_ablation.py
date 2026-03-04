@@ -543,26 +543,36 @@ def _build_commands(cfg_path: str, spec: Dict[str, Any], args, result_json_path:
 def _maybe_run(cmd: List[str], cwd: str, execute: bool, log_path: str | None = None) -> int | None:
     if not execute:
         return None
-    completed = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
+    log_handle = None
     if log_path:
         log_dir = os.path.dirname(os.path.abspath(log_path))
         if log_dir:
             os.makedirs(log_dir, exist_ok=True)
-        with open(log_path, "w", encoding="utf-8") as f:
-            if completed.stdout:
-                f.write(completed.stdout)
-                if not completed.stdout.endswith("\n"):
-                    f.write("\n")
-            if completed.stderr:
-                f.write("\n[stderr]\n")
-                f.write(completed.stderr)
-                if not completed.stderr.endswith("\n"):
-                    f.write("\n")
-    if completed.stdout:
-        sys.stdout.write(completed.stdout)
-    if completed.stderr:
-        sys.stderr.write(completed.stderr)
-    return int(completed.returncode)
+        log_handle = open(log_path, "w", encoding="utf-8")
+    try:
+        env = os.environ.copy()
+        env["PYTHONUNBUFFERED"] = "1"
+        process = subprocess.Popen(
+            cmd,
+            cwd=cwd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            bufsize=1,
+            env=env,
+        )
+        assert process.stdout is not None
+        for line in process.stdout:
+            sys.stdout.write(line)
+            sys.stdout.flush()
+            if log_handle is not None:
+                log_handle.write(line)
+                log_handle.flush()
+        process.stdout.close()
+        return int(process.wait())
+    finally:
+        if log_handle is not None:
+            log_handle.close()
 
 
 def _execute_experiment(spec: Dict[str, Any], commands: Dict[str, List[str]], args, logs_root: str) -> tuple[str, str, str]:
